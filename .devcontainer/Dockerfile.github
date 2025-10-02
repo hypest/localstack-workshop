@@ -22,3 +22,9 @@ ENV PORTS_CHECK_DOCKER_IMAGE=localstack/localstack-pro
 # set test environment variables
 ENV AWS_ACCESS_KEY_ID=test
 ENV AWS_SECRET_ACCESS_KEY=test
+
+# Install official Terraform CLI
+RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor > /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+	&& echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list \
+	&& apt-get update \
+	&& apt-get install -y terraform
