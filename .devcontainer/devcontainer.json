@@ -8,5 +8,8 @@
         "README.md"
       ]
     }
-  }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/Documents,target=/mnt/host-documents,type=bind,consistency=cached"
+  ]
 }
